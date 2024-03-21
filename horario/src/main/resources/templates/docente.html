@@ -73,7 +73,7 @@
 					<!--Começa o excluir-->
 					<td>
 						<a class="delete btn btn-sm btn-danger"
-							th:href="@{excluir_docente/{idDocente}(idDocente=${docente})}"
+							th:href="@{excluir_docente/{idDocente}(idDocente=${docente.idDocente})}"
 							onclick="if (confirm('Deseja realmente excluir o docente?')){return true;}else{event.stopPropagation();event.preventDefault();};">
 							Excluir
 						</a>

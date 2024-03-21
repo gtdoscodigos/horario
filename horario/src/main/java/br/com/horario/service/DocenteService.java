@@ -10,4 +10,9 @@ public interface DocenteService {
 	List<DocenteEntity> findAll();
 	DocenteEntity getOneByIdDocente (Long idDocente) throws Exception; 
 	
+	//Começa a exclusão
+	String deleteById(Long idDocente) throws Exception;
+	//Termina a exclusão
+	
+	
 }
