@@ -52,7 +52,7 @@
 		<br>
 		<div class="container">
 		<h5 class="card-title">Docentes cadastrados</h5>
-		<table class="table table-sn table-striped table-hover table-bordered">
+		<table id="example" class="table table-striped" style="width:100%">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -84,6 +84,9 @@
 			</tbody>
 
 		</table>
+		<script>
+			new DataTable('#example');
+		</script>
 	</div>
 	</form>
 
