@@ -51,43 +51,52 @@
 		<!--Começa lista de docentes-->
 		<br>
 		<div class="container">
-		<h5 class="card-title">Docentes cadastrados</h5>
-		<table id="example" class="table table-striped" style="width:100%">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Setor</th>
-					<th>Email</th>
-					<th class="col-1"></th>
-					<th class="col-1"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="docente : ${docentes}">
-					<td th:text="${docente.IdDocente}"></td>
-					<td th:text="${docente.Nome + ' ' + docente.sobrenome}"></td>
-					<td th:text="${docente.setor.nome}"></td>
-					<td th:text="${docente.email}"></td>
-					<td><a class="btn btn-sn btn-warning" th:href="@{alterar_docente/{idDocente}(idDocente=${docente.IdDocente})}">Alterar</a></td>
-					<!--Começa o excluir-->
-					<td>
-						<a class="delete btn btn-sm btn-danger"
-							th:href="@{excluir_docente/{idDocente}(idDocente=${docente.idDocente})}"
-							onclick="if (confirm('Deseja realmente excluir o docente?')){return true;}else{event.stopPropagation();event.preventDefault();};">
-							Excluir
-						</a>
-					</td>
-					<!--Termina Exclusão-->
-				</tr>
+			<h5 class="card-title">Docentes cadastrados</h5>
+			<table id="example" class="display nowrap" style="width:100%">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Setor</th>
+						<th>Email</th>
+						<th class="col-1"></th>
+						<th class="col-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="docente : ${docentes}">
+						<td th:text="${docente.IdDocente}"></td>
+						<td th:text="${docente.Nome + ' ' + docente.sobrenome}"></td>
+						<td th:text="${docente.setor.nome}"></td>
+						<td th:text="${docente.email}"></td>
+						<td><a class="btn btn-sn btn-warning"
+								th:href="@{alterar_docente/{idDocente}(idDocente=${docente.IdDocente})}">Alterar</a>
+						</td>
+						<!--Começa o excluir-->
+						<td>
+							<a class="delete btn btn-sm btn-danger"
+								th:href="@{excluir_docente/{idDocente}(idDocente=${docente.idDocente})}"
+								onclick="if (confirm('Deseja realmente excluir o docente?')){return true;}else{event.stopPropagation();event.preventDefault();};">
+								Excluir
+							</a>
+						</td>
+						<!--Termina Exclusão-->
+					</tr>
 
-			</tbody>
+				</tbody>
 
-		</table>
-		<script>
-			new DataTable('#example');
-		</script>
-	</div>
+			</table>
+			<script>
+				new DataTable('#example', {
+					layout: {
+						topStart: {
+							buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+						}
+					}
+				});
+			</script>
+
+		</div>
 	</form>
 
 	<div th:insert="~{layout/rodape}"></div>
