@@ -59,10 +59,18 @@
 
 		</table>
 		<script>
-			new DataTable('#example');
-			language:{
-				url:'//cdn.datatables.net/plug-ins/2.0.3/i18n/pt-BR.json'
-			}
+			new DataTable('#example', {
+					layout: {
+						topStart: {
+							buttons: [
+								{
+									extend: 'csv',
+									split: ['pdf', 'excel']
+								}
+							]
+						}
+					}
+				});
 		</script>
 		
 	</div>
